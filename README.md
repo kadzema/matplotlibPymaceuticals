@@ -74,7 +74,7 @@ mouseDF[mouseDF["Drug"]=="Capomulin"].sort_values(by="Mouse ID").head(3)
 
 
 ```python
-drugDF[(drugDF["Metastatic Sites"]==0)&(drugDF["Timepoint"]!=0)].tail()
+drugDF[(drugDF["Metastatic Sites"]==0)&(drugDF["Timepoint"]==0)].head()
 ```
 
 
@@ -106,38 +106,38 @@ drugDF[(drugDF["Metastatic Sites"]==0)&(drugDF["Timepoint"]!=0)].tail()
   </thead>
   <tbody>
     <tr>
-      <th>1799</th>
-      <td>z578</td>
-      <td>45</td>
-      <td>30.638696</td>
+      <th>0</th>
+      <td>b128</td>
+      <td>0</td>
+      <td>45.0</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1829</th>
-      <td>b742</td>
-      <td>45</td>
-      <td>38.939633</td>
+      <th>1</th>
+      <td>f932</td>
+      <td>0</td>
+      <td>45.0</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1836</th>
-      <td>a444</td>
-      <td>45</td>
-      <td>43.047543</td>
+      <th>2</th>
+      <td>g107</td>
+      <td>0</td>
+      <td>45.0</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1846</th>
-      <td>x401</td>
-      <td>45</td>
-      <td>28.484033</td>
+      <th>3</th>
+      <td>a457</td>
+      <td>0</td>
+      <td>45.0</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1851</th>
-      <td>i901</td>
-      <td>45</td>
-      <td>65.341811</td>
+      <th>4</th>
+      <td>c819</td>
+      <td>0</td>
+      <td>45.0</td>
       <td>0</td>
     </tr>
   </tbody>
@@ -164,7 +164,7 @@ TumorVolumePivot = pd.pivot_table(TumorVolume, index=["Timepoint"], values=["Tum
 TumorVolumeSEM = drugs4.groupby(["Drug","Timepoint"])["Tumor Volume (mm3)"].sem().to_frame("Tumor Volume (mm3)")
 # pivot the results so each drug is a column
 TumorVolumeSEMPivot = pd.pivot_table(TumorVolumeSEM, index=["Timepoint"], values=["Tumor Volume (mm3)"], columns="Drug")
-TumorVolumeSEMPivot
+TumorVolumePivot
 
 ```
 
@@ -209,73 +209,73 @@ TumorVolumeSEMPivot
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>45.000000</td>
+      <td>45.000000</td>
+      <td>45.000000</td>
+      <td>45.000000</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>0.448593</td>
-      <td>0.235102</td>
-      <td>0.264819</td>
-      <td>0.218091</td>
+      <td>44.266086</td>
+      <td>47.062001</td>
+      <td>47.389175</td>
+      <td>47.125589</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>0.702684</td>
-      <td>0.282346</td>
-      <td>0.357421</td>
-      <td>0.402064</td>
+      <td>43.084291</td>
+      <td>49.403909</td>
+      <td>49.582269</td>
+      <td>49.423329</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>0.838617</td>
-      <td>0.357705</td>
-      <td>0.580268</td>
-      <td>0.614461</td>
+      <td>42.064317</td>
+      <td>51.296397</td>
+      <td>52.399974</td>
+      <td>51.359742</td>
     </tr>
     <tr>
       <th>20</th>
-      <td>0.909731</td>
-      <td>0.476210</td>
-      <td>0.726484</td>
-      <td>0.839609</td>
+      <td>40.716325</td>
+      <td>53.197691</td>
+      <td>54.920935</td>
+      <td>54.364417</td>
     </tr>
     <tr>
       <th>25</th>
-      <td>0.881642</td>
-      <td>0.550315</td>
-      <td>0.755413</td>
-      <td>1.034872</td>
+      <td>39.939528</td>
+      <td>55.715252</td>
+      <td>57.678982</td>
+      <td>57.482574</td>
     </tr>
     <tr>
       <th>30</th>
-      <td>0.934460</td>
-      <td>0.631061</td>
-      <td>0.934121</td>
-      <td>1.218231</td>
+      <td>38.769339</td>
+      <td>58.299397</td>
+      <td>60.994507</td>
+      <td>59.809063</td>
     </tr>
     <tr>
       <th>35</th>
-      <td>1.052241</td>
-      <td>0.984155</td>
-      <td>1.127867</td>
-      <td>1.287481</td>
+      <td>37.816839</td>
+      <td>60.742461</td>
+      <td>63.371686</td>
+      <td>62.420615</td>
     </tr>
     <tr>
       <th>40</th>
-      <td>1.223608</td>
-      <td>1.055220</td>
-      <td>1.158449</td>
-      <td>1.370634</td>
+      <td>36.958001</td>
+      <td>63.162824</td>
+      <td>66.068580</td>
+      <td>65.052675</td>
     </tr>
     <tr>
       <th>45</th>
-      <td>1.223977</td>
-      <td>1.144427</td>
-      <td>1.453186</td>
-      <td>1.351726</td>
+      <td>36.236114</td>
+      <td>65.755562</td>
+      <td>70.662958</td>
+      <td>68.084082</td>
     </tr>
   </tbody>
 </table>
@@ -287,8 +287,8 @@ TumorVolumeSEMPivot
 ```python
 # plot the results
 
-# TumorVolumePivot.index.get_level_values(0) is equal to the timepoint if we don't reset the index
-# TumorVolumePivot[('Tumor Volume (mm3)','Capomulin')] - need to specify both levels of index (tumor volume and drug) to get drug column since tumor level was created as level when creating pivot
+# TumorVolumePivot.index.get_level_values(0) is equal to the TumorVolumePivot["Timepoint"] if we don't reset the index
+# TumorVolumePivot[('Tumor Volume (mm3)','Capomulin')] - need to specify both levels of index (tumor volume and drug) to get drug column since tumor level was created as level when creating pivot using pivot_table
 plt.errorbar(TumorVolumePivot.index.get_level_values(0), TumorVolumePivot[('Tumor Volume (mm3)','Capomulin')], color="xkcd:hot pink", marker="X", label="Capomulin", yerr=TumorVolumeSEMPivot[('Tumor Volume (mm3)','Capomulin')])
 plt.errorbar(TumorVolumePivot.index.get_level_values(0), TumorVolumePivot[('Tumor Volume (mm3)','Infubinol')],  marker="s", color="m", label="Infubinol", yerr=TumorVolumeSEMPivot[('Tumor Volume (mm3)','Infubinol')])
 plt.errorbar(TumorVolumePivot.index.get_level_values(0), TumorVolumePivot[('Tumor Volume (mm3)','Ketapril')], marker = "o", color="c", label="Ketapril", yerr=TumorVolumeSEMPivot[('Tumor Volume (mm3)','Ketapril')])
@@ -319,6 +319,7 @@ MetastaticSitesPivot = pd.pivot_table(MetastaticSites, index="Timepoint", column
 MetastaticSitesSEM = drugs4.groupby(["Drug","Timepoint"])["Metastatic Sites"].sem().to_frame("Metastatic Sites")
 # pivot the results so that each drug is a column
 MetastaticSitesSEMPivot = pd.pivot_table(MetastaticSitesSEM, index="Timepoint", columns="Drug", values="Metastatic Sites")
+MetastaticSitesPivot.reset_index(inplace=True)
 MetastaticSitesSEMPivot
 ```
 
@@ -435,23 +436,12 @@ MetastaticSitesSEMPivot
 
 
 ```python
-MetastaticSitesPivot.index.get_level_values(0)
-```
-
-
-
-
-    Int64Index([0, 5, 10, 15, 20, 25, 30, 35, 40, 45], dtype='int64', name='Timepoint')
-
-
-
-
-```python
 # plot the results
-plt.errorbar(MetastaticSitesPivot.index.get_level_values(0), MetastaticSitesPivot[("Metastatic Sites","Capomulin")], color="xkcd:hot pink", marker="X", label="Capomulin",yerr=MetastaticSitesSEMPivot["Capomulin"])
-plt.errorbar(MetastaticSitesPivot.index.get_level_values(0), MetastaticSitesPivot[("Metastatic Sites","Infubinol")], color="m", marker="s", label="Infubinol",yerr=MetastaticSitesSEMPivot["Infubinol"])
-plt.errorbar(MetastaticSitesPivot.index.get_level_values(0), MetastaticSitesPivot[("Metastatic Sites","Ketapril")], color="c", marker="o", label="Ketapril",yerr=MetastaticSitesSEMPivot["Ketapril"])
-plt.errorbar(MetastaticSitesPivot.index.get_level_values(0), MetastaticSitesPivot[("Metastatic Sites","Placebo")], color="k", marker="D", label="Placebo",yerr=MetastaticSitesSEMPivot["Placebo"])
+#Note: can use MetastaticSitesPivot["Timepoint"] because we reset the index above
+plt.errorbar(MetastaticSitesPivot["Timepoint"], MetastaticSitesPivot[("Metastatic Sites","Capomulin")], color="xkcd:hot pink", marker="X", label="Capomulin",yerr=MetastaticSitesSEMPivot["Capomulin"])
+plt.errorbar(MetastaticSitesPivot["Timepoint"], MetastaticSitesPivot[("Metastatic Sites","Infubinol")], color="m", marker="s", label="Infubinol",yerr=MetastaticSitesSEMPivot["Infubinol"])
+plt.errorbar(MetastaticSitesPivot["Timepoint"], MetastaticSitesPivot[("Metastatic Sites","Ketapril")], color="c", marker="o", label="Ketapril",yerr=MetastaticSitesSEMPivot["Ketapril"])
+plt.errorbar(MetastaticSitesPivot["Timepoint"], MetastaticSitesPivot[("Metastatic Sites","Placebo")], color="k", marker="D", label="Placebo",yerr=MetastaticSitesSEMPivot["Placebo"])
 
 plt.title("Capomulin Exhibits Slower Spread of Metastatic Sites")
 plt.xlabel("Days of Treatment")
@@ -462,7 +452,7 @@ plt.show()
 ```
 
 
-![png](output_12_0.png)
+![png](output_11_0.png)
 
 
 ### Survival Rates
@@ -472,8 +462,12 @@ plt.show()
 # get the survival rates per drug per timepoint
 SurvivalRates = drugs4.groupby(["Drug","Timepoint"])["Mouse ID"].count().to_frame("Survival Rates")
 # pivot the results so that each drug is a column
-#  NOTE: if values is in brackets, it creates another level, if not in brackets, I can access without referencing the level and just call the column directly
 SurvivalRatesPivot = pd.pivot_table(SurvivalRates, index="Timepoint", columns="Drug", values="Survival Rates")
+# Two methods to calculate percent change of each value in table
+# option 1: with lambda
+# SurvivalRatesPivot= round(SurvivalRatesPivot.apply(lambda c: c / c.max() * 100, axis=0),2) 
+# option 2: without lambda
+SurvivalRatesPivot = SurvivalRatesPivot/SurvivalRatesPivot.max()*100
 SurvivalRatesPivot
 ```
 
@@ -514,73 +508,73 @@ SurvivalRatesPivot
   <tbody>
     <tr>
       <th>0</th>
-      <td>25</td>
-      <td>25</td>
-      <td>25</td>
-      <td>25</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>100.0</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>25</td>
-      <td>25</td>
-      <td>23</td>
-      <td>24</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>92.0</td>
+      <td>96.0</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>25</td>
-      <td>21</td>
-      <td>22</td>
-      <td>24</td>
+      <td>100.0</td>
+      <td>84.0</td>
+      <td>88.0</td>
+      <td>96.0</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>24</td>
-      <td>21</td>
-      <td>19</td>
-      <td>20</td>
+      <td>96.0</td>
+      <td>84.0</td>
+      <td>76.0</td>
+      <td>80.0</td>
     </tr>
     <tr>
       <th>20</th>
-      <td>23</td>
-      <td>20</td>
-      <td>19</td>
-      <td>19</td>
+      <td>92.0</td>
+      <td>80.0</td>
+      <td>76.0</td>
+      <td>76.0</td>
     </tr>
     <tr>
       <th>25</th>
-      <td>22</td>
-      <td>18</td>
-      <td>19</td>
-      <td>17</td>
+      <td>88.0</td>
+      <td>72.0</td>
+      <td>76.0</td>
+      <td>68.0</td>
     </tr>
     <tr>
       <th>30</th>
-      <td>22</td>
-      <td>17</td>
-      <td>18</td>
-      <td>15</td>
+      <td>88.0</td>
+      <td>68.0</td>
+      <td>72.0</td>
+      <td>60.0</td>
     </tr>
     <tr>
       <th>35</th>
-      <td>22</td>
-      <td>12</td>
-      <td>17</td>
-      <td>14</td>
+      <td>88.0</td>
+      <td>48.0</td>
+      <td>68.0</td>
+      <td>56.0</td>
     </tr>
     <tr>
       <th>40</th>
-      <td>21</td>
-      <td>10</td>
-      <td>15</td>
-      <td>12</td>
+      <td>84.0</td>
+      <td>40.0</td>
+      <td>60.0</td>
+      <td>48.0</td>
     </tr>
     <tr>
       <th>45</th>
-      <td>21</td>
-      <td>9</td>
-      <td>11</td>
-      <td>11</td>
+      <td>84.0</td>
+      <td>36.0</td>
+      <td>44.0</td>
+      <td>44.0</td>
     </tr>
   </tbody>
 </table>
@@ -598,143 +592,17 @@ plt.plot(SurvivalRatesPivot.index.get_level_values(0), SurvivalRatesPivot["Place
 
 plt.title("Capomulin Exhibits Slower Decline in Survival Rates")
 plt.xlabel("Days of Treatment")
-plt.ylabel("Survival Rates")        
+plt.ylabel("Survival Rates Percentage")        
 plt.legend()
 
 plt.show()
 ```
 
 
-![png](output_15_0.png)
+![png](output_14_0.png)
 
 
-### Tumor Change
-
-
-```python
-TumorVolumePivot.reset_index(inplace=True)
-TumorVolumePivot
-```
-
-
-
-
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Timepoint</th>
-      <th colspan="4" halign="left">Tumor Volume (mm3)</th>
-    </tr>
-    <tr>
-      <th>Drug</th>
-      <th></th>
-      <th>Capomulin</th>
-      <th>Infubinol</th>
-      <th>Ketapril</th>
-      <th>Placebo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>45.000000</td>
-      <td>45.000000</td>
-      <td>45.000000</td>
-      <td>45.000000</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>5</td>
-      <td>44.266086</td>
-      <td>47.062001</td>
-      <td>47.389175</td>
-      <td>47.125589</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>10</td>
-      <td>43.084291</td>
-      <td>49.403909</td>
-      <td>49.582269</td>
-      <td>49.423329</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>15</td>
-      <td>42.064317</td>
-      <td>51.296397</td>
-      <td>52.399974</td>
-      <td>51.359742</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>20</td>
-      <td>40.716325</td>
-      <td>53.197691</td>
-      <td>54.920935</td>
-      <td>54.364417</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>25</td>
-      <td>39.939528</td>
-      <td>55.715252</td>
-      <td>57.678982</td>
-      <td>57.482574</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>30</td>
-      <td>38.769339</td>
-      <td>58.299397</td>
-      <td>60.994507</td>
-      <td>59.809063</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>35</td>
-      <td>37.816839</td>
-      <td>60.742461</td>
-      <td>63.371686</td>
-      <td>62.420615</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>40</td>
-      <td>36.958001</td>
-      <td>63.162824</td>
-      <td>66.068580</td>
-      <td>65.052675</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>45</td>
-      <td>36.236114</td>
-      <td>65.755562</td>
-      <td>70.662958</td>
-      <td>68.084082</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
+### Percentage of Tumor Change
 
 
 ```python
@@ -752,7 +620,7 @@ for p in TumorChangePercent["% Change"]:
     else:
         color.append("red")
     
-TumorChangePercent.plot(kind="bar", color=color, alpha=.65)
+TumorChangePercent.plot(kind="bar", color=color, alpha=.65, rot=0)
 #remove the legend
 plt.legend("")
 # add the percentages on the bars
@@ -766,16 +634,12 @@ for a,b in zip(x_axis, TumorChangePercent["% Change"]):
 plt.title("Capomulin Exhibits Tumor Shrinkage Over 45 Day Treatment")
 plt.xlabel("Drug")
 plt.ylabel("% Tumor Volume Change")  
+plt.axhline(y=0, c="gray", alpha=.45)
 
     
 plt.show()
 ```
 
 
-![png](output_18_0.png)
+![png](output_16_0.png)
 
-
-
-```python
-
-```
